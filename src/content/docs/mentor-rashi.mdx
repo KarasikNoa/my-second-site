@@ -1,0 +1,25 @@
+---
+title: מנטור ראשי
+description: הכשרת מנטור ראשי
+---
+
+import ProgressTracker from '../../components/ProgressTracker.astro';
+
+<div class="frc-hero">
+  <div class="frc-hero-icon">
+    <i class="ti ti-school"></i>
+  </div>
+  <h1>מנטור ראשי</h1>
+  <p>ליווי מקצועי והכוונת הקבוצה</p>
+</div>
+
+## מסלול ההכשרה
+
+<ProgressTracker
+  storageKey="mentor-rashi"
+  sections={[
+    { title: "ליווי מקצועי של הצוותים" },
+    { title: "הכוונה אסטרטגית" },
+    { title: "תמיכה במובילי הצוותים" },
+  ]}
+/>

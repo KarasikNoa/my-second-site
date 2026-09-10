@@ -1,0 +1,21 @@
+---
+title: תוכנה - מנטור
+description: תפקיד מנטור תוכנה
+---
+
+import ProgressTracker from '../../../components/ProgressTracker.astro';
+
+<div class="frc-banner">
+  <h1 style="color: var(--frc-white); margin: 0;">מנטור תוכנה</h1>
+</div>
+
+## מסלול ההכשרה
+
+<ProgressTracker
+  storageKey="tochna-mentor"
+  sections={[
+    { title: "ארכיטקטורת קוד" },
+    { title: "ניהול גרסאות" },
+    { title: "ליווי מתכנתים" },
+  ]}
+/>

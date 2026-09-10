@@ -1,0 +1,133 @@
+---
+// רשימת החלקים מגיעה מהעמוד שמשתמש ברכיב.
+// כל חלק: כותרת, ואופציונלי קישור לסרטון.
+const { sections = [], storageKey = 'progress' } = Astro.props;
+---
+
+<div class="pt-wrap" data-key={storageKey} data-total={sections.length}>
+  <div class="pt-bar-outer">
+    <div class="pt-bar-inner"></div>
+  </div>
+  <div class="pt-label"><span class="pt-count">0</span> / {sections.length} הושלמו</div>
+
+  <div class="pt-sections">
+    {sections.map((s, i) => (
+      <div class="pt-section">
+        <div class="pt-section-head">
+          <h3>{s.title}</h3>
+          <button class="pt-btn" data-index={i}>סמן כהושלם</button>
+        </div>
+       {s.video && (
+          <div class="pt-video">
+            <video controls width="100%" style="border-radius:8px;" poster={s.poster}>
+              <source src={s.video} />
+              הדפדפן שלך לא תומך בהצגת וידאו.
+            </video>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.pt-wrap').forEach((wrap) => {
+    const key = wrap.getAttribute('data-key');
+    const total = parseInt(wrap.getAttribute('data-total'));
+    const bar = wrap.querySelector('.pt-bar-inner');
+    const countEl = wrap.querySelector('.pt-count');
+    const buttons = wrap.querySelectorAll('.pt-btn');
+
+    // טעינת התקדמות שמורה מהדפדפן
+    let done = JSON.parse(localStorage.getItem(key) || '[]');
+
+    function colorFor(pct) {
+      let hue;
+      if (pct <= 50) hue = (pct / 50) * 40;
+      else hue = 40 + ((pct - 50) / 50) * 80;
+      return `hsl(${Math.round(hue)}, 85%, 45%)`;
+    }
+
+    function render() {
+      const count = done.length;
+      const pct = total ? (count / total) * 100 : 0;
+      bar.style.width = pct + '%';
+      bar.style.background = colorFor(pct);
+      countEl.textContent = count;
+
+      buttons.forEach((btn) => {
+        const i = parseInt(btn.getAttribute('data-index'));
+        if (done.includes(i)) {
+          btn.textContent = '✓ הושלם';
+          btn.classList.add('pt-btn-done');
+        } else {
+          btn.textContent = 'סמן כהושלם';
+          btn.classList.remove('pt-btn-done');
+        }
+      });
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.getAttribute('data-index'));
+        if (done.includes(i)) {
+          done = done.filter((x) => x !== i); // ביטול סימון
+        } else {
+          done.push(i);
+        }
+        localStorage.setItem(key, JSON.stringify(done));
+        render();
+      });
+    });
+
+    render();
+  });
+</script>
+
+<style>
+  .pt-bar-outer {
+    background: #eee;
+    border-radius: 999px;
+    height: 20px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+  .pt-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: hsl(0, 85%, 45%);
+    border-radius: 999px;
+    transition: width 0.4s ease, background 0.4s ease;
+  }
+  .pt-label {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .pt-section {
+    border: 2px solid var(--frc-red);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .pt-section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .pt-section-head h3 { margin: 0; }
+  .pt-btn {
+    background: var(--frc-red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .pt-btn-done { background: hsl(120, 85%, 35%); }
+  .pt-video { margin-top: 1rem; }
+</style>

@@ -1,0 +1,23 @@
+---
+title: מכניקה - מנטור
+description: תפקיד מנטור מכניקה
+---
+
+import ProgressTracker from '../../../components/ProgressTracker.astro';
+
+<div class="frc-banner">
+  <h1 style="color: var(--frc-white); margin: 0;">מנטור מכניקה</h1>
+</div>
+
+## מסלול ההכשרה
+
+<ProgressTracker
+  storageKey="mechanica-mentor"
+  sections={[
+    { title: "שיטות עבודה עם עץ" },
+    { title: "היכרות עם חומרים וברגים" },
+    { title: "כלים חשמליים וידניים" },
+    { title: "עקרונות מכניים" },
+    { title: "עבודה עם מוצרי מדף" },
+  ]}
+/>

@@ -1,0 +1,24 @@
+---
+title: מכניקה
+description: הכשרת צוות מכניקה
+---
+
+import ProgressTracker from '../../components/ProgressTracker.astro';
+
+<div class="frc-banner">
+  <h1 style="color: var(--frc-white); margin: 0;">מכניקה</h1>
+</div>
+
+## מסלול ההכשרה
+
+עברו על החלקים לפי הסדר, וסמנו כל חלק שסיימתם.
+
+<ProgressTracker
+  storageKey="mechanica"
+  sections={[
+    { title: "עבודה עם מברגה, אימפקט וקלמפה", video: "/videos/MechanicaBasicTest01.mp4", poster: "/covers/עבודה עם מברגה, אימפקט, קלמפה.jpg" },
+    { title: "עבודה עם Jig Saw", video: "/videos/JigSawVid.mp4", poster: "/covers/JigSaw.jpg" },
+    { title: "תהליך הפרוטוטייפים" },
+    { title: "עבודה עם כלי עץ" },
+  ]}
+/>

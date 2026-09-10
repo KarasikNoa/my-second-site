@@ -1,0 +1,23 @@
+---
+title: אלקטרוניקה
+description: הכשרת צוות אלקטרוניקה
+---
+
+import ProgressTracker from '../../components/ProgressTracker.astro';
+
+<div class="frc-banner">
+  <h1 style="color: var(--frc-white); margin: 0;">אלקטרוניקה</h1>
+</div>
+
+## מסלול ההכשרה
+
+<ProgressTracker
+  storageKey="electronica"
+  sections={[
+    { title: "רכיבי אלקטרוניקה בסיסיים בFRC", video: "/videos/רכיבי אלקטרוניקה בסיסיים ב FRC.mp4", poster: "/covers/cover - רכיבי אלקטרוניקה בסיסיים ב FRC.jpg" },
+    { title: "איך לעשות פרלים", video: "/videos/איך לעשות פרלים.mp4", poster: "/covers/cover - איך לעשות פרלים.jpg" },
+    { title: "כללי בטיחות" },
+    { title: "סידור קבלים" },
+    { title: "עבודה עצמאית" },
+  ]}
+/>

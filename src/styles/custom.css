@@ -1,0 +1,282 @@
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/dist/tabler-icons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --frc-red: #ed1c24;
+  --frc-maroon: #821522;
+  --frc-white: #ffffff;
+
+  --frc-red-soft: #fdeaea;
+  --frc-gray-bg: #fafafa;
+  --frc-border: #ececec;
+  --frc-text: #1a1a1a;
+  --frc-text-soft: #666;
+
+  --sl-color-accent: var(--frc-red);
+  --sl-color-accent-low: #2a0a0d;
+  --sl-color-accent-high: #f8b4b8;
+  --sl-font: 'Heebo', sans-serif;
+
+  --frc-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --frc-shadow-hover: 0 6px 20px rgba(130,21,34,0.15);
+  --frc-radius: 14px;
+}
+
+body { line-height: 1.7; color: var(--frc-text); }
+
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.01em; }
+
+.sl-markdown-content h2 {
+  border-bottom: 2px solid var(--frc-red-soft);
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
+}
+
+/* ===== באנר ===== */
+.frc-banner {
+  background: linear-gradient(135deg, var(--frc-maroon), var(--frc-red));
+  color: var(--frc-white);
+  padding: 2.5rem 2rem;
+  border-radius: var(--frc-radius);
+  text-align: center;
+  box-shadow: var(--frc-shadow);
+  margin-bottom: 2rem;
+}
+.frc-banner h1 { font-weight: 800; letter-spacing: -0.02em; }
+
+/* ===== כרטיס כללי ===== */
+.frc-card {
+  background: var(--frc-white);
+  color: var(--frc-text);
+  border: 1px solid var(--frc-border);
+  border-inline-start: 4px solid var(--frc-red);
+  border-radius: var(--frc-radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--frc-shadow);
+}
+
+/* ===== רשת כרטיסים ===== */
+.frc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-block: 1.5rem;
+}
+
+/* ===== כרטיס איש קשר ===== */
+.frc-contact {
+  background: var(--frc-white);
+  border: 1px solid var(--frc-border);
+  border-radius: var(--frc-radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--frc-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  min-width: 0;
+  overflow: hidden;
+}
+.frc-contact strong {
+  color: var(--frc-maroon);
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.frc-contact:hover {
+  box-shadow: var(--frc-shadow-hover);
+  transform: translateY(-3px);
+}
+.frc-contact strong { color: var(--frc-maroon); font-size: 1.05rem; }
+
+.frc-phone {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: block;
+  font-weight: 600;
+  color: var(--frc-text-soft);
+  margin-top: 0.3rem;
+  text-align: start;
+}
+
+/* ===== כרטיסי בחירה ===== */
+.frc-role-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--frc-white);
+  color: var(--frc-text);
+  border: 1px solid var(--frc-border);
+  border-radius: var(--frc-radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  box-shadow: var(--frc-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.frc-role-card:hover {
+  border-color: var(--frc-red);
+  box-shadow: var(--frc-shadow-hover);
+  transform: translateY(-4px);
+}
+.frc-role-card strong { font-size: 1.2rem; color: var(--frc-maroon); }
+.frc-role-card span { font-size: 0.9rem; color: var(--frc-text-soft); }
+
+/* ===== עיצוב עמוד הבית ===== */
+.frc-hero {
+  background: linear-gradient(135deg, var(--frc-maroon) 0%, var(--frc-red) 100%);
+  padding: 3rem 2rem;
+  border-radius: var(--frc-radius);
+  text-align: center;
+  color: var(--frc-white);
+  box-shadow: var(--frc-shadow);
+  margin-bottom: 2.5rem;
+}
+.frc-hero-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  font-size: 34px;
+}
+.frc-hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--frc-white);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.frc-hero p {
+  color: rgba(255,255,255,0.9);
+  margin: 0.5rem 0 0;
+}
+.frc-hero-btn {
+  display: inline-block;
+  background: var(--frc-white);
+  color: var(--frc-maroon);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.frc-hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+.frc-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--frc-text);
+  margin: 2.5rem 0 1rem;
+}
+.frc-section-title .frc-ico { color: var(--frc-red); font-size: 1.4rem; }
+
+.frc-contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--frc-red-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+  color: var(--frc-red);
+  font-size: 20px;
+}
+
+.frc-callout {
+  background: var(--frc-gray-bg);
+  border-radius: var(--frc-radius);
+  padding: 1.5rem;
+  border-inline-start: 4px solid var(--frc-red);
+  margin-top: 1rem;
+}
+.frc-callout strong { color: var(--frc-maroon); font-size: 1.1rem; }
+
+.frc-corner-logo {
+  position: fixed;
+  bottom: 1rem;
+  inset-inline-end: 1rem;
+  width: 200px;
+  height: auto;
+  z-index: 20;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+.frc-corner-logo:hover { opacity: 1; }
+/* סרגל ניווט ימני צר יותר */
+:root {
+  --sl-sidebar-width: 12rem;
+}
+/* רשת 2 בשורה */
+.frc-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-block: 1.5rem;
+}
+@media (max-width: 640px) {
+  .frc-grid-2 { grid-template-columns: 1fr; }
+}
+/* רשת 2 בשורה */
+.sl-markdown-content .frc-grid-2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.25rem !important;
+  margin-block: 1.5rem;
+  align-items: start;
+}
+.sl-markdown-content .frc-grid-2 > * {
+  margin: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+/* קטע יצירת קשר במייל */
+.frc-contact-box {
+  background: var(--frc-gray-bg);
+  border: 1px solid var(--frc-border);
+  border-radius: var(--frc-radius);
+  padding: 2rem;
+  text-align: center;
+  margin-block: 2rem;
+  box-shadow: var(--frc-shadow);
+}
+.frc-contact-icon-lg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--frc-red-soft);
+  color: var(--frc-red);
+  font-size: 28px;
+  margin-bottom: 1rem;
+}
+.frc-contact-box strong {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--frc-maroon);
+}
+.frc-contact-box p {
+  color: var(--frc-text-soft);
+  margin: 0.4rem 0 1rem;
+}.frc-email-text {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  color: var(--frc-maroon);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+.frc-email:hover {
+  background: var(--frc-maroon);
+  transform: translateY(-2px);
+}

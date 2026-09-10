@@ -1,0 +1,21 @@
+---
+title: תוכנה
+description: הכשרת צוות תוכנה
+---
+
+import ProgressTracker from '../../components/ProgressTracker.astro';
+
+<div class="frc-banner">
+  <h1 style="color: var(--frc-white); margin: 0;">תוכנה</h1>
+</div>
+
+## מסלול ההכשרה
+
+<ProgressTracker
+  storageKey="tochna"
+  sections={[
+    { title: "יסודות שפת Java" },
+    { title: "מבני נתונים בסיסיים" },
+    { title: "הכרת ספריות" },
+  ]}
+/>

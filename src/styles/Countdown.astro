@@ -1,0 +1,39 @@
+---
+// This is the "frontmatter" — server-side setup.
+// Change this date to your season's kickoff / competition.
+const target = new Date('2026-01-03T00:00:00');
+---
+
+<div class="frc-banner">
+  <h2 style="color: var(--frc-white); margin-top: 0;">הספירה לעונה</h2>
+  <div id="countdown" style="font-size: 2rem; font-weight: 700;">טוען…</div>
+</div>
+
+<script define:vars={{ target: target.toISOString() }}>
+  const end = new Date(target).getTime();
+
+  function tick() {
+    const now = Date.now();
+    const diff = end - now;
+    const el = document.getElementById('countdown');
+    if (!el) return;
+
+    if (diff <= 0) {
+      el.textContent = 'העונה התחילה!';
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    // dir=ltr keeps the numbers from flipping
+    el.innerHTML =
+      `<span dir="ltr">${days}</span> ימים ` +
+      `<span dir="ltr">${hours}</span> שעות ` +
+      `<span dir="ltr">${mins}</span> דקות ` +
+      `<span dir="ltr">${secs}</span> שניות`;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
